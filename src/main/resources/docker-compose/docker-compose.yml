@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    container_name: db_beer
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: beers
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db_beer:/var/lib/mysql
+
+volumes:
+  db_beer:
